@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2026-09-22 16:44:31.675574",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "attendee_entry_section",
+  "member",
+  "package_purchase",
+  "credits_charged",
+  "attendance_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "attendee_entry_section",
+   "fieldtype": "Section Break",
+   "label": "Attendee Entry"
+  },
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Member",
+   "options": "Member",
+   "reqd": 1
+  },
+  {
+   "fieldname": "package_purchase",
+   "fieldtype": "Link",
+   "label": "Package Purchase",
+   "options": "Package Purchase",
+   "reqd": 1
+  },
+  {
+   "fieldname": "credits_charged",
+   "fieldtype": "Int",
+   "label": "Credits Charged",
+   "read_only": 1
+  },
+  {
+   "default": "Booked",
+   "fieldname": "attendance_status",
+   "fieldtype": "Select",
+   "label": "Attendance Status",
+   "options": "Booked\nAttended\nNo-Show\nCancelled"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-22 18:31:54.681820",
+ "modified_by": "Administrator",
+ "module": "FlexLedger",
+ "name": "Attendee Entry",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

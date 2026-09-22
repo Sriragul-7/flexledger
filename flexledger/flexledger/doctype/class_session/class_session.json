@@ -1,0 +1,138 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "CLS-.YYYY.-.#####",
+ "creation": "2026-09-22 16:47:38.163415",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_xazs",
+  "session_type",
+  "trainer",
+  "session_date",
+  "start_time",
+  "room_or_location",
+  "amended_from",
+  "antendee_section",
+  "attendee",
+  "status_and_notes_section",
+  "status",
+  "cancellation_reason",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_xazs",
+   "fieldtype": "Section Break",
+   "label": "Session Details"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Class Session",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "session_type",
+   "fieldtype": "Link",
+   "label": "Session Type",
+   "options": "Session Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "trainer",
+   "fieldtype": "Link",
+   "label": "Trainer",
+   "options": "Trainer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "session_date",
+   "fieldtype": "Date",
+   "label": "Session Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "label": "Start Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "room_or_location",
+   "fieldtype": "Data",
+   "label": "Room or Location"
+  },
+  {
+   "fieldname": "antendee_section",
+   "fieldtype": "Section Break",
+   "label": "Attendee"
+  },
+  {
+   "fieldname": "status_and_notes_section",
+   "fieldtype": "Section Break",
+   "label": "Status and Notes"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nScheduled\nCompleted\nCancelled"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Cancelled\"",
+   "fieldname": "cancellation_reason",
+   "fieldtype": "Small Text",
+   "label": "Cancellation Reason"
+  },
+  {
+   "fieldname": "attendee",
+   "fieldtype": "Table",
+   "label": "Attendee",
+   "options": "Attendee Entry"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-22 18:47:45.702401",
+ "modified_by": "Administrator",
+ "module": "FlexLedger",
+ "name": "Class Session",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

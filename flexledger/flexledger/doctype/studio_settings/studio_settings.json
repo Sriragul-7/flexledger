@@ -1,0 +1,79 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2026-09-22 16:22:55.214661",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "studio_settings_section",
+  "studio_name",
+  "manager_email",
+  "default_cancellation_window_hours",
+  "no_show_forfeits_credit",
+  "low_balance_alert_threshold"
+ ],
+ "fields": [
+  {
+   "fieldname": "studio_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Studio Settings"
+  },
+  {
+   "fieldname": "studio_name",
+   "fieldtype": "Data",
+   "label": "Studio Name"
+  },
+  {
+   "fieldname": "manager_email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Manager Email",
+   "options": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_cancellation_window_hours",
+   "fieldtype": "Int",
+   "label": "Default Cancellation Window Hours"
+  },
+  {
+   "default": "1",
+   "fieldname": "no_show_forfeits_credit",
+   "fieldtype": "Check",
+   "label": "No Show Forfeits Credit"
+  },
+  {
+   "default": "2",
+   "fieldname": "low_balance_alert_threshold",
+   "fieldtype": "Int",
+   "label": "Low Balance Alert Threshold"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-09-22 16:26:11.367205",
+ "modified_by": "Administrator",
+ "module": "FlexLedger",
+ "name": "Studio Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
