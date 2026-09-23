@@ -13,7 +13,7 @@ fixtures = [
 
 
 permission_query_conditions = {
-    "Class Session": "flexledger.permissions.class_session_query_conditions"
+    "Class Session": "flexledger.permission.class_session_query_conditions"
 }
 
 
