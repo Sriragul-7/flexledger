@@ -44,3 +44,20 @@ def transfer_package(package_name, new_member):
         frappe.db.rollback()
         frappe.log_error(frappe.get_traceback(), "Package Transfer Failed")
         raise
+
+
+@frappe.whitelist()
+def unsafe_get_members():
+
+    return frappe.db.get_all("Member", fields=["*"])
+
+
+@frappe.whitelist()
+def safe_get_members():
+    
+    fields=["name", "member_name", "join_date", "status", "user"]
+    if "FIT Studio Manager" in frappe.get_roles(frappe.session.user):
+        fields += ["phone","email"]
+        
+    return (frappe.get_list("Member",fields=fields))
+    3333
