@@ -8,7 +8,6 @@ app_license = "mit"
 
 fixtures = [
     {"dt": "Role", "filters": [["name", "in", ["FIT Front Desk", "FIT Trainer", "FIT Studio Manager"]]]},
-    {"dt": "Custom DocPerm", "filters": [["role", "in", ["FIT Front Desk", "FIT Trainer", "FIT Studio Manager"]]]}
 ]
 
 
@@ -18,4 +17,13 @@ permission_query_conditions = {
 }
 
 
+after_install = "flexledger.install.after_install"
+
+doc_events = {
+    "*": {
+        "on_update": "flexledger.audit.log_change",
+        "on_submit": "flexledger.audit.log_change",
+        "on_cancel": "flexledger.audit.log_change",
+    }
+}
 
