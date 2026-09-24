@@ -27,3 +27,8 @@ doc_events = {
     }
 }
 
+scheduler_events = {
+    "daily": [
+        "flexledger.api.check_expiring_packages"
+    ]
+}

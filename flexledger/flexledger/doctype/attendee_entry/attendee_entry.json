@@ -5,13 +5,14 @@
  "creation": "2026-09-22 16:44:31.675574",
  "doctype": "DocType",
  "engine": "InnoDB",
- "field_order": [
-  "attendee_entry_section",
-  "member",
-  "package_purchase",
-  "credits_charged",
-  "attendance_status"
- ],
+  "field_order": [
+   "attendee_entry_section",
+   "member",
+   "package_purchase",
+   "credits_remaining",
+   "credits_charged",
+   "attendance_status"
+  ],
  "fields": [
   {
    "fieldname": "attendee_entry_section",
@@ -34,6 +35,13 @@
    "reqd": 1
   },
   {
+   "fieldname": "credits_remaining",
+   "fieldtype": "Int",
+   "label": "Credits Remaining",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
    "fieldname": "credits_charged",
    "fieldtype": "Int",
    "label": "Credits Charged",
@@ -51,7 +59,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-09-22 18:31:54.681820",
+ "modified": "2026-09-24 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "FlexLedger",
  "name": "Attendee Entry",

@@ -12,3 +12,4 @@ def send_low_balance_email(member, package_name, credits_remaining):
         subject="Low balance alert",
         message=f"Your package {package_name} has {credits_remaining} credits remaining.",
     )
+ 
