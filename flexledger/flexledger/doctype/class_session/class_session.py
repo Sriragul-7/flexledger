@@ -46,14 +46,22 @@ class ClassSession(Document):
                 frappe.throw("Attendance not finalized")
 
     def on_submit(self):
+        if self.credits_deducted:
+            return
+
         for row in self.attendees:
             if self.is_charged(row):
                 self.deduct_credits(row)
 
+        self.db_set("credits_deducted", 1, update_modified=False)
+
     def on_cancel(self):
-        for row in self.attendees:
-            if self.is_charged(row):
-                self.refund_credits(row)
+        if self.credits_deducted:
+            for row in self.attendees:
+                if self.is_charged(row):
+                    self.refund_credits(row)
+
+            self.db_set("credits_deducted", 0, update_modified=False)
 
         self.db_set("status", "Cancelled", update_modified=False)
 
@@ -81,6 +89,10 @@ class ClassSession(Document):
         credits_used = package.credits_used + row.credits_charged
         credits_remaining = package.total_credits - credits_used
 
+        # set_value writes straight to the table: no permission check, no document events.
+        # That bypass is acceptable here because submit already passed the user's permission
+        # check and validate() approved this exact amount against this member's own package —
+        # the row and the amount are never chosen by the person clicking submit.
         frappe.db.set_value(
             "Package Purchase",
             row.package_purchase,
@@ -89,7 +101,6 @@ class ClassSession(Document):
                 "credits_remaining": credits_remaining,
                 "status": "Fully Used" if credits_remaining == 0 else "Active",
             },
-            ignore_permissions=True,
         )
 
         threshold = frappe.db.get_single_value("Studio Settings", "low_balance_alert_threshold")
@@ -121,5 +132,4 @@ class ClassSession(Document):
                 "credits_remaining": credits_remaining,
                 "status": "Active" if credits_remaining > 0 else "Fully Used",
             },
-            ignore_permissions=True,
         )

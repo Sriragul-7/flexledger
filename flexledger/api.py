@@ -93,3 +93,7 @@ def check_expiring_packages():
         "timestamp": frappe.utils.now_datetime(),
         "date": today(),
     }).insert(ignore_permissions=True)
+
+
+def get_studio_name():
+    return frappe.get_single("Studio Settings").studio_name
