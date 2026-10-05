@@ -8,6 +8,7 @@ app_license = "mit"
 
 fixtures = [
 	{"dt": "Role", "filters": [["name", "in", ["FIT Front Desk", "FIT Trainer", "FIT Studio Manager"]]]},
+	{"dt" : "Package Purchase", "filters": ["status", "=", "Active"]}
 ]
 
 

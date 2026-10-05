@@ -4,6 +4,9 @@ def class_session_query_conditions(user=None):
     
     user = user or frappe.session.user
 
+    if "System Manager" in frappe.get_roles(user) or "FIT Studio Manager" in frappe.get_roles(user):
+        return ""
+
     if "FIT Trainer" not in frappe.get_roles(user):
         return ""
 
